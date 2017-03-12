@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+.all{ width:992px; height:420px; background:yellow; margin:100px auto; position:relative; overflow:hidden;}
+.all ul{ position:relative; z-index:1;}
+.all ul li{ position:absolute; left:0; top:0;}
+.all ul .current{ z-index:10;}
+
+.all ol{ position:absolute; bottom:10px; right:10px; z-index:2;}
+.all ol li{ width:30px; height:20px; border:1px solid #ccc; float:left; line-height:20px; text-align:center; color:#000; margin-left:10px; cursor:pointer;}
+.all ol .current{ background:#f60;}
+.all span{ width:40px; height:70px; background:url(img/images/arr.png) 0 0; position:absolute; left:0; top:50%; margin-top:-35px; z-index:11; cursor:pointer; display:none;}
+.all .right{ left:auto; right:0; background-position:right 0;}
+</style>
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){function l(){e++,a++,a>4&&(a=0),$(".all ol li").eq(a).addClass("current").siblings().removeClass(),$(".all ul li").eq(a).css({zIndex:e}).hide().fadeIn(n)}var e=100,a=0,n=800,s=null;$(".all ol li").click(function(l){e++,$(this).addClass("current").siblings().removeClass();var n=$(this).index();$(".all ul li").eq(n).css("z-index",e).hide().fadeIn(),a=n}),$(".all .right").click(function(l){a++,e++,a>4&&(a=0),$(".all ol li").eq(a).addClass("current").siblings().removeClass(),$(".all ul li").eq(a).css({zIndex:e}).hide().fadeIn(n)}),$(".all .left").click(function(l){a--,e++,a<0&&(a=4),$(".all ol li").eq(a).addClass("current").siblings().removeClass(),$(".all ul li").eq(a).css({zIndex:e}).hide().fadeIn(n)}),s=setInterval(l,2e3),$(".all").hover(function(l){clearInterval(s),$(".all span").fadeIn()},function(e){clearInterval(s),s=setInterval(l,2e3),$(".all span").fadeOut()})});
+</script>
+</head>
+
+<body>
+<div class="all">
+  <ul>
+  	<li class="current"><img src="img/images/1.jpg" width="992" height="420"></li>
+  	<li><img src="img/images/2.jpg" width="992" height="420"></li>
+  	<li><img src="img/images/3.jpg" width="992" height="420"></li>
+  	<li><img src="img/images/4.jpg" width="992" height="420"></li>
+  	<li><img src="img/images/5.jpg" width="992" height="420"></li>
+  </ul>
+  <ol>
+  	<li class="current">1</li>
+  	<li>2</li>
+  	<li>3</li>
+  	<li>4</li>
+  	<li>5</li>
+  </ol>
+  <span class="left"></span>
+  <span class="right"></span>
+</div>
+</body>
+</html>

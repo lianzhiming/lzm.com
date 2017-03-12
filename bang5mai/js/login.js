@@ -1,0 +1,1 @@
+$(function(){checkCookie("username")?$(".email").val(getCookie("username")):$(".email").val(""),$(".reg").click(function(){$(".psw").val()==getCookie("passwords")?window.location="../../index.html":$(".paf").css("visibility","visible")})});
